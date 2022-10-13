@@ -1,6 +1,7 @@
 package com.si5b.implicitintent;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ShareCompat;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -30,13 +31,14 @@ public class MainActivity extends AppCompatActivity {
         btnBukaWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String link = etLink.getText().toString();
-                Uri uriLink = Uri.parse(link);
-                Intent bukawebsite = new Intent(Intent.ACTION_VIEW, uriLink);
+                String linkWebsite = etLink.getText().toString();
+                Uri konvLinkWebsite = Uri.parse(linkWebsite);
+                Intent bukaWebsite = new Intent(Intent.ACTION_VIEW, konvLinkWebsite);
+
                 try {
-                    startActivity(bukawebsite);
+                    startActivity(bukaWebsite);
                 } catch (Exception e) {
-                    Toast.makeText(MainActivity.this, "kesalahan", Toast.LENGTH_SHORT).show();
+                    etLink.setError("Ada Kesalahan Link Website");
                 }
             }
         });
@@ -45,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String teks = etTeks.getText().toString();
+                String mimeType = "text/plain";
+                new ShareCompat
+                        .IntentBuilder(MainActivity.this)
+                        .setType(mimeType)
+                        .setChooserTitle("Bagikan teks ini")
+                        .setText(teks)
+                        .startChooser();
 
             }
         });
@@ -52,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         btnBukaLokasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String lokasi = etLokasi.getText().toString();
+                Uri konvLokasi = Uri.parse("geo:0,0?q=" + lokasi);
+                Intent bukaLokasi = new Intent(Intent.ACTION_VIEW, konvLokasi);
+                startActivity(bukaLokasi);
 
             }
         });

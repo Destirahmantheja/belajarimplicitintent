@@ -19,7 +19,8 @@
         android:id="@+id/btn_buka_website"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Buka Website"/>
+        android:text="Buka Website"
+        android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/et_lokasi"
@@ -32,19 +33,21 @@
         android:id="@+id/btn_buka_lokasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Buka Lokasi"/>
+        android:text="Buka Lokasi"
+        android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/et_teks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Teks Apa Saja"
-        android:inputType="text"/>
+        android:inputType="text" />
 
     <Button
         android:id="@+id/btn_bagikan_teks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bagikan Teks"/>
+        android:text="Bagikan Teks"
+        android:layout_marginBottom="16dp"/>
 
 </LinearLayout>
